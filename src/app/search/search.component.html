@@ -1,0 +1,12 @@
+<input [formControl]="search" class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search..." >
+<div *ngIf="loading$ | async">
+    Loading
+</div>
+
+<div *ngIf="searchResponse$ | async as searchResponse;">
+    Showing results for {{ searchTerm$ | async }}
+    {{ searchResponse.artists?.total }}
+</div>
+<app-artist-card-item></app-artist-card-item>
+
+<!-- {{ searchHistory$ | async }} -->
